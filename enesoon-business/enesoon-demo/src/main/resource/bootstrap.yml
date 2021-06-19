@@ -1,0 +1,21 @@
+server:
+  port: 8087
+  servlet: 
+    context-path: /enesoon-demo
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka/
+  # 配置Swagger相关信息
+  instance:
+      prefer-ip-address: true
+      instanceId: 127.0.0.1:${server.port}
+      status-page-url: http://127.0.0.1:${server.port}/swagger-ui.html 
+      # ${server.port}为该服务的端口号
+
+spring:
+  profiles: 
+    active: test
+  application:
+    name: enesoon-demo
